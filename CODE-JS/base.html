@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE-JS</title>
+    <style>
+        div#frame1
+        {
+            font:normal 20pt Arial;
+            background: rgb(20, 53, 201);
+            color: rgb(255, 255, 255);
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+        body
+        {
+            background-color:rgb(200, 208, 212);
+        }
+        input#fieldText1
+        {
+            width: 500px;
+            margin-top: 20px;
+        }
+        div#label1
+        {
+            width: 500px;
+            margin-top: 20px;
+        }
+        input#convert1
+        {
+            margin-top: 20px;
+        }
+        input#convert2
+        {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1><center>MOUSE SENSOR</center></h1>
+    <center><div id="frame1" onclick="click()" onmouseenter="enter()" onmouseout="exit()">SENSOR</div></center>
+
+    <h1><center>Convert a little phrase with (TO UPPER CASE) and (to lower case)</center></h1>
+
+    <center><input type="text" id="fieldText1" name="fieldText1"></center>
+    <center><input type="button" id= "convert1" value="TO UPPER CASE" onclick="ConvertToUpperCase()">
+        <input type="button" id= "convert2" value="TO LOWER CASE" onclick="ConvertToLowerCase()"></center>
+    <center><div id = "label1"></div></center>
+    
+    <script>
+        var fr = window.document.getElementById("frame1");
+        fr.addEventListener('click',click);
+        function click()
+        {
+            fr.innerText = 'CLICKED!';
+            fr.style.background = 'black';
+        }
+        function enter()
+        {
+            fr.innerText = 'ENTER!';
+            fr.style.background = 'green';
+        }
+        function exit()
+        {
+            fr.innerText = 'EXITED!';
+            fr.style.background = 'red';
+        }
+
+        var fieldText1 = window.document.getElementById('fieldText1');
+        var fieldText2 = window.document.getElementById('label1');
+        function ConvertToUpperCase()
+        {
+            var test  = String (fieldText1.value);
+            fieldText2.innerHTML = `<strong> Result = </strong> ${test.toUpperCase()}`;
+        }
+        function ConvertToLowerCase()
+        {
+            var test  = String (fieldText1.value);
+            fieldText2.innerHTML = `<strong> Result = </strong> ${test.toLowerCase()}`;
+        }
+    </script>
+</body>
+</html>
