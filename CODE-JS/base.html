@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODE-JS</title>
     <style>
-        div#frame1
+        div#frameMouseSensor
         {
             font:normal 20pt Arial;
             background: rgb(20, 53, 201);
@@ -19,21 +19,21 @@
         {
             background-color:rgb(200, 208, 212);
         }
-        input#fieldText1
+        input#fieldTextConvert
         {
             width: 500px;
             margin-top: 20px;
         }
-        div#label1
+        div#labelResultConvert
         {
             width: 500px;
             margin-top: 20px;
         }
-        input#convert1
+        input#convertToUpperCase
         {
             margin-top: 20px;
         }
-        input#convert2
+        input#convertToLowerCase
         {
             margin-left: 20px;
         }
@@ -41,36 +41,36 @@
 </head>
 <body>
     <h1><center>MOUSE SENSOR</center></h1>
-    <center><div id="frame1" onclick="click()" onmouseenter="enter()" onmouseout="exit()">SENSOR</div></center>
+    <center><div id="frameMouseSensor" onclick="clickMouseSensor()" onmouseenter="enterMouseSensor()" onmouseout="exitMouseSensor()">SENSOR</div></center>
 
     <h1><center>Convert a little phrase with (TO UPPER CASE) and (to lower case)</center></h1>
 
-    <center><input type="text" id="fieldText1" name="fieldText1"></center>
-    <center><input type="button" id= "convert1" value="TO UPPER CASE" onclick="ConvertToUpperCase()">
-        <input type="button" id= "convert2" value="TO LOWER CASE" onclick="ConvertToLowerCase()"></center>
-    <center><div id = "label1"></div></center>
+    <center><input type="text" id="fieldTextConvert" name="fieldTextConvert"></center>
+    <center><input type="button" id= "convertToUpperCase" value="TO UPPER CASE" onclick="ConvertToUpperCase()">
+        <input type="button" id= "convertToLowerCase" value="TO LOWER CASE" onclick="ConvertToLowerCase()"></center>
+    <center><div id = "labelResultConvert"></div></center>
     
     <script>
-        var fr = window.document.getElementById("frame1");
+        var fr = window.document.getElementById("frameMouseSensor");
         fr.addEventListener('click',click);
-        function click()
+        function clickMouseSensor()
         {
             fr.innerText = 'CLICKED!';
             fr.style.background = 'black';
         }
-        function enter()
+        function enterMouseSensor()
         {
             fr.innerText = 'ENTER!';
             fr.style.background = 'green';
         }
-        function exit()
+        function exitMouseSensor()
         {
             fr.innerText = 'EXITED!';
             fr.style.background = 'red';
         }
 
-        var fieldText1 = window.document.getElementById('fieldText1');
-        var fieldText2 = window.document.getElementById('label1');
+        var fieldText1 = window.document.getElementById('fieldTextConvert');
+        var fieldText2 = window.document.getElementById('labelResultConvert');
         function ConvertToUpperCase()
         {
             var test  = String (fieldText1.value);
