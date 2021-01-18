@@ -8,8 +8,8 @@
         div#frameMouseSensor
         {
             font:normal 20pt Arial;
-            background: rgb(20, 53, 201);
-            color: rgb(255, 255, 255);
+            background: red;
+            color: black;
             width: 200px;
             height: 200px;
             line-height: 200px;
@@ -37,49 +37,65 @@
         {
             margin-left: 20px;
         }
+        input#chkInvertColorMode
+        {
+            margin-left: 1100px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
+    <input type="checkbox" id="chkInvertColorMode" value="on"> <strong>Invert Color Mode</strong>
+
     <h1><center>MOUSE SENSOR</center></h1>
     <center><div id="frameMouseSensor" onclick="clickMouseSensor()" onmouseenter="enterMouseSensor()" onmouseout="exitMouseSensor()">SENSOR</div></center>
 
     <h1><center>Convert a little phrase with (TO UPPER CASE) and (to lower case)</center></h1>
 
-    <center><input type="text" id="fieldTextConvert" name="fieldTextConvert"></center>
+    <center><input type="text" id="fieldTextConvert"></center>
+
     <center><input type="button" id= "convertToUpperCase" value="TO UPPER CASE" onclick="ConvertToUpperCase()">
         <input type="button" id= "convertToLowerCase" value="TO LOWER CASE" onclick="ConvertToLowerCase()"></center>
-    <center><div id = "labelResultConvert"></div></center>
-    
+
+    <center><div id = "labelResultConvert"></div> </center> 
+
     <script>
-        var fr = window.document.getElementById("frameMouseSensor");
-        fr.addEventListener('click',click);
+        var frameMouseSensor = window.document.getElementById("frameMouseSensor");
+        var checkboxInvertColorMode = window.document.getElementById("chkInvertColorMode");
         function clickMouseSensor()
         {
-            fr.innerText = 'CLICKED!';
-            fr.style.background = 'black';
-        }
+            frameMouseSensor.innerText = 'CLICKED!';   
+        }  
         function enterMouseSensor()
         {
-            fr.innerText = 'ENTER!';
-            fr.style.background = 'green';
+            frameMouseSensor.innerText = 'ENTER!';
+            if(checkboxInvertColorMode.checked)
+            {
+                frameMouseSensor.style.background = 'black';
+                frameMouseSensor.style.color = 'red';
+            }
+            else
+            {
+                frameMouseSensor.style.background = 'red';
+                frameMouseSensor.style.color = 'black';
+            }
         }
         function exitMouseSensor()
         {
-            fr.innerText = 'EXITED!';
-            fr.style.background = 'red';
+            frameMouseSensor.innerText = 'EXITED!';
         }
 
-        var fieldText1 = window.document.getElementById('fieldTextConvert');
-        var fieldText2 = window.document.getElementById('labelResultConvert');
+        var fieldTextInput = window.document.getElementById('fieldTextConvert');
+        var fieldTextOutput = window.document.getElementById('labelResultConvert');
         function ConvertToUpperCase()
         {
-            var test  = String (fieldText1.value);
-            fieldText2.innerHTML = `<strong> Result = </strong> ${test.toUpperCase()}`;
+            var stringfieldTextInput  = String (fieldTextInput.value);
+            fieldTextOutput.innerHTML = `<strong> Result = </strong> ${stringfieldTextInput.toUpperCase()}`;
         }
         function ConvertToLowerCase()
         {
-            var test  = String (fieldText1.value);
-            fieldText2.innerHTML = `<strong> Result = </strong> ${test.toLowerCase()}`;
+            var stringfieldTextInput  = String (fieldTextInput.value);
+            fieldTextOutput.innerHTML = `<strong> Result = </strong> ${stringfieldTextInput.toLowerCase()}`;
         }
     </script>
 </body>
